@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Madlibs {
+public class Main {
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter an adjective");
@@ -32,7 +32,13 @@ public class Madlibs {
     String noun2 = sc.nextLine();
     sc.close();
 
-    System.out.println("It was a " + adjective1+",cold November day. I woke up to the " + adjective2 + " smell of "+ birdType + " roasting in the "+ roomType + " downstairs. I " + verbPast + " down the stairs to see if I could help "+ verb+ " the dinner. My mom said, \"See if " + relName + " needs a fresh " + noun1 + ".\" So I carried a tray of glasses full of " + liquid + " into the " + verbIng1 + " room. When I got there, I couldn't believe my " + bodyPart + "! There were " + nounPlural + " " + verbIng2 + " on the " + noun2 + "!" );
+    System.out.println("It was a " + adjective1+",cold November day. I woke up to the " +
+            adjective2 + " smell of "+ birdType + " roasting in the "+ roomType + " downstairs. I " +
+            verbPast + " down the stairs to see if I could help "+
+            verb+ " the dinner. My mom said, \"See if " + relName + " needs a fresh " +
+            noun1 + ".\" So I carried a tray of glasses full of " + liquid + " into the " +
+            verbIng1 + " room. When I got there, I couldn't believe my " + bodyPart + "! There were " +
+            nounPlural + " " + verbIng2 + " on the " + noun2 + "!" );
 
     }
 }
