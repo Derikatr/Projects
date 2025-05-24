@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Madlibs {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter an adjective");
+    String adjective1 = sc.nextLine();
+    System.out.println("Enter an adjective");
+    String adjective2= sc.nextLine();
+    System.out.println("Enter a type of bird");
+    String birdType = sc.nextLine();
+    System.out.println("Enter a room in a house");
+    String roomType= sc.nextLine();
+    System.out.println("Enter a verb (past tense)");
+    String verbPast = sc.nextLine();
+    System.out.println("Enter a verb");
+    String verb = sc.nextLine();
+    System.out.println("Enter a relatives name");
+    String relName = sc.nextLine();
+    System.out.println("Enter a noun");
+    String noun1 = sc.nextLine();
+    System.out.println("Enter a liquid");
+    String liquid = sc.nextLine();
+    System.out.println("Enter a verb(ending in -ing)");
+    String verbIng1 = sc.nextLine();
+    System.out.println("Enter a part of the body");
+    String bodyPart= sc.nextLine();
+    System.out.println("Enter plural noun");
+    String nounPlural = sc.nextLine();
+    System.out.println("Enter a verb(ending in -ing)");
+    String verbIng2 = sc.nextLine();
+    System.out.println("Enter a noun");
+    String noun2 = sc.nextLine();
+    sc.close();
+
+    System.out.println("It was a " + adjective1+",cold November day. I woke up to the " + adjective2 + " smell of "+ birdType + " roasting in the "+ roomType + " downstairs. I " + verbPast + " down the stairs to see if I could help "+ verb+ " the dinner. My mom said, \"See if " + relName + " needs a fresh " + noun1 + ".\" So I carried a tray of glasses full of " + liquid + " into the " + verbIng1 + " room. When I got there, I couldn't believe my " + bodyPart + "! There were " + nounPlural + " " + verbIng2 + " on the " + noun2 + "!" );
+
+    }
+}
