@@ -27,6 +27,8 @@ public class Main{
             System.out.println("Option not available");
         }
 
+        sc.close();
+
 
     }
 
