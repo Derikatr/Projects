@@ -12,7 +12,7 @@ public class Main {
                                {"1. Steve Jobs", "2. Bill Gates", "3. Alan Turing", "4. Charles Babbage"},
                                {"1. COBOL", "2. C", "3. Fortran", "4. Assembly"}};
         int [] answers = {3,1,2,4,3};
-        int score = 0;
+        int total = 0;
         int guess;
 
         Scanner sc = new Scanner(System.in);
@@ -33,14 +33,14 @@ public class Main {
                 System.out.println("********");
                 System.out.println("Correct!:");
                 System.out.println("********");
-                score++;
+                total++;
             }
             else{
                 System.out.println("**********");
                 System.out.println("Incorrect!");
                 System.out.println("**********");
             }
-            System.out.println("Score: " + score + " out of " + questions.length);
+            System.out.println("Score: " + total + " out of " + questions.length);
         }
         sc.close();
 
