@@ -1,0 +1,10 @@
+from matplotlib import pyplot as plt
+
+date= ["2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12"]
+demand = [46193, 49131, 50124, 48850, 47602, 43697, 41058, 37364, 34364]
+capacity= [29263, 28037, 21596, 25895, 25813, 22427, 23605, 24263, 24243]
+plt.plot(date, demand, color= "orange", label= "Demand")
+plt.plot(date, capacity, color= "blue", label= "Capacity")
+plt.title("Demand and Capacity by Month")
+plt.legend()
+plt.show()
