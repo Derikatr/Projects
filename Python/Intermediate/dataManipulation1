@@ -1,0 +1,52 @@
+# import pandas
+import pandas as pd
+# create a series of at least 10 numerical elements
+ages = pd.Series([2, 8, 15, 21, 22, 23, 53, 78, 92, 101], index = ['a','b','c','d','e','f','g','h','i','j'])
+#create column/dataframe
+data= {'col1': [2, 8,], 'col2': [15, 21], 'col3': [22, 23], 'col4': [53, 78], 'col5': [92, 101]}
+
+df = pd.DataFrame(data)
+#compute sum, mean, and unique values and display
+
+#sum
+print("Sum: ", end="")
+print(ages.sum())
+
+#mean
+print("Mean: ", end="")
+print(ages.mean())
+
+#unique values
+print("Unique Values: ", end="")
+print(ages.unique())
+
+#byLabel
+print("Access by label: ", end="")
+print(ages.loc['e'])
+
+#byPosition
+print("Access by position: ", end="")
+print(ages.iloc[5])
+
+#gap for cleaner look
+print()
+
+#print dataframe
+print("Original DataFrame: ")
+print(df)
+
+#gap for cleaner look
+print()
+
+#new column
+print("New Column Added: ")
+df['new_col'] = df['col1'] + df['col2'] +df['col3'] +df['col4'] +df['col5']
+print(df)
+
+#gap for cleaner look
+print()
+
+#drop column
+dr= df.drop(['col5'], axis=1)
+print("Dropped: ")
+print(dr)
