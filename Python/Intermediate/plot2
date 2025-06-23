@@ -1,0 +1,82 @@
+# import pandas and matplotlib
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# load required dataset
+df = pd.read_csv('owid-co2-data.csv')
+
+#inspect structure
+print(df.head())
+print(df.info())
+print(df.describe())   
+
+# key columns
+keyColumns= ['country', 'year', 'co2', 'co2_per_capita', 'population']
+
+#filter rows
+filter=['World', 'Asia']
+df_filter = df[~df['country'].isin(filter)]
+
+# Handle missing values using drop
+df_filter = df_filter.dropna(subset=['co2'])
+
+# Convert data types
+df_filter['year'] = df_filter['year'].astype(int)
+df_filter['co2']= df_filter['co2'].astype(float)
+df_filter['co2_per_capita']= df_filter['co2_per_capita'].astype(float)
+df_filter['population']= df_filter['population'].astype(float)
+
+# Plot global co2 emissions from 1960–2020
+global_co2 = df_filter.groupby('year')['co2'].sum()
+
+# Plot the global CO2 emissions
+plt.figure(figsize=(10, 6))
+plt.plot(global_co2.index, global_co2.values, color='b', label='Global co2 Emissions')
+plt.title('Global co2 Emissions from 1960-2020')
+plt.xlabel('Year')
+plt.ylabel('Total co2 Emissions')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+# Compare top 5 emitting countries over time
+topCountries = df_filter.groupby(['country', 'year'])['co2'].sum().reset_index()
+
+# Find the top 5 emitting countries by total emissions
+topFive = topCountries.groupby('country')['co2'].sum().nlargest(5).index
+
+# Filter for top 5 countries
+top_5_data = topCountries[topCountries['country'].isin(topFive)]
+
+# Plot 
+plt.figure(figsize=(10, 6))
+for country in topFive:
+    country_data = top_5_data[top_5_data['country'] == country]
+    plt.plot(country_data['year'], country_data['co2'], label=country)
+
+plt.title('co2 Emissions of Top 5 Countries Over Time')
+plt.xlabel('Year')
+plt.ylabel('co2 Emissions')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Analyze per capita co2
+regions = {
+    'Africa': ['Nigeria', 'South Africa', 'Egypt'],  # Add more African countries
+    'Asia': ['China', 'India', 'Japan']
+}
+
+# Assign region to analyze per capita co2
+df_filter['region'] = df_filter['country'].apply(lambda x: next((region for region, countries in regions.items() if x in countries), 'Other'))
+
+# Calculate average per capita emissions by region
+region_per_capita_co2 = df_filter.groupby('region')['co2_per_capita'].mean()
+
+# Plot
+region_per_capita_co2.plot(kind='bar', figsize=(10, 6), color='g')
+plt.title('Average Per Capita co2 Emissions by Region')
+plt.xlabel('Region')
+plt.ylabel('Average co2 Emissions per Capita')
+plt.grid(True)
+plt.show()
