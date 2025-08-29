@@ -1,0 +1,22 @@
+class Solution {
+   public int subtractProductAndSum(int n) {
+       int temp = 1;
+       int temp2 = 0;
+       while(n>0){
+           int mod = n%10;
+           temp = temp * mod;
+
+
+           int mod2 = n%10;
+           temp2 = temp2 + mod2;
+
+
+           n = n/10;
+       }
+
+
+       return temp-temp2;
+
+
+   }
+}
