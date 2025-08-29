@@ -1,0 +1,11 @@
+class Solution {
+    public boolean divisorGame(int n) {
+        //if n is even its true
+        //if n is odd its false
+        int mod;
+        mod = n%2;
+        return mod == 0;
+
+
+    }
+}
