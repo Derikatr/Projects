@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><u style = "color: orange;">Groceries</u></h4>
+    <ul>
+        <!--unordered list-->
+        <li>milk</li>
+        <li>eggs</li>
+        <li>bread supplies</li>
+        <ul>
+                <li>yeast</li>
+            </ul>
+        <li>coffee supplies</li>
+        <ul>
+            <li>coffee beans</li>
+            <li>creamer</li>
+            <li>sugar</li>
+        </ul>
+    </ul>
+    <h3><u style = "color: green;">To Do List</u></h3>
+    <!--ordered list-->
+    <ol type = 'I'>
+        <li>eat breakfast</li>
+        <ol>
+            <li>eggs</li>
+            <ol type = 'I'>
+                <li>bacon</li>
+                <li>cheese</li>
+            </ol>
+        </ol>
+        <li> got to class</li>
+        <li>ealk dog</li>
+        <li>work</li>
+    </ol>
+    <!--description list-->
+    <dl style = "background-color: lightgreen; border:2px solid"><h3><u style = "color: darkmagenta">Mythical Creatures</u></h3>
+        <dt><b>Dragon</b></dt>
+        <dd>A dragon is a legendary creature appearing in worldwide folklore, most often depicted as a winged, fire-breathing reptile with varied cultural interpretations, symbolizing evil in some 
+            cultures and wisdom or nature in others.</dd>
+        <dt><b>Phoenix</b></dt>
+        <dd>The phoenix is a mythical, immortal bird from Greek, Egyptian, and other mythologies that regenerates by rising from the ashes of 
+            its predecessor after a fiery death.</dd>
+        <dt><b>Vampire</b></dt>
+        <dd>A vampire is a mythical, often blood-drinking, undead creature found in folklore 
+            and fiction that preys on the living. </dd>
+        <dt><b>Werewolf</b></dt>
+        <dd>A werewolf, or lycanthrope, is a 
+            legendary creature that is a human who can 
+            transform into a wolf or wolf-like hybrid, a 
+            transformation often occurring under a full 
+            moon and sometimes linked to a curse 
+            or ancient folklore. </dd>
+    </dl>
+</body>
+</html>
