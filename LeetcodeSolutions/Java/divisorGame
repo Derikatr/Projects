@@ -2,7 +2,5 @@ class Solution {
     public boolean divisorGame(int n) {
         int mod = n%2;
         return mod == 0;
-
-
     }
 }
