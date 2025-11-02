@@ -1,0 +1,95 @@
+CREATE TABLE `address` (
+`address_id` int(11) NOT NULL AUTO_INCREMENT,
+`street` varchar(100) DEFAULT NULL,
+`city` varchar(100) DEFAULT NULL,
+`state` varchar(100) DEFAULT NULL,
+`zip` char(5) DEFAULT NULL,
+PRIMARY KEY (`address_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+
+CREATE TABLE customer (
+customer_id int AUTO_INCREMENT,
+first_name VARCHAR(20) DEFAULT NULL,
+last_name VARCHAR(20) DEFAULT NULL,
+email varchar(30) DEFAULT NULL,
+phone char(10) DEFAULT NULL,
+address_id int,
+PRIMARY KEY (customer_id),
+foreign key (address_id) references Address(address_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE inventory (
+inventory_id int AUTO_INCREMENT,
+stock_quantity INT,
+product_name VARCHAR(30) DEFAULT NULL,
+product_type VARCHAR(30) DEFAULT NULL,
+purchase_price DECIMAL (10,2),
+sale_price DECIMAL (10,2),
+status VARCHAR(30),
+supplier_id INT,
+PRIMARY KEY (inventory_id),
+FOREIGN KEY (supplier_id) REFERENCES supplier(supplier_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE supplier(
+supplier_id int AUTO_INCREMENT,
+first_name VARCHAR(20) DEFAULT NULL,
+last_name VARCHAR(20) DEFAULT NULL,
+email varchar(30) DEFAULT NULL,
+phone char(10) DEFAULT NULL,
+address_id int,
+PRIMARY KEY (supplier_id),
+foreign key (address_id) references Address(address_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE invoice(
+invoice_id int AUTO_INCREMENT,
+invoice_date DATE,
+total_amount DECIMAL (10,2),
+customer_id int,
+PRIMARY KEY (invoice_id),
+foreign key (`customer_id`) references customer(`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE invoiceItem (
+invoice_id INT,
+inventory_id INT,
+sale_price DECIMAL(10,2),
+quantity INT,
+PRIMARY KEY (invoice_id, inventory_id),
+FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id),
+FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE employee(
+employee_id int AUTO_INCREMENT,
+first_name VARCHAR(20) DEFAULT NULL,
+last_name VARCHAR(20) DEFAULT NULL,
+role VARCHAR(30),
+phone char(10) DEFAULT NULL,
+email varchar(30) DEFAULT NULL,
+address_id int, 
+PRIMARY KEY (employee_id),
+foreign key (address_id) references Address(address_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE payment(
+payment_id int AUTO_INCREMENT,
+amount DECIMAL(10,2),
+payment_type VARCHAR(20),
+payment_date DATE,
+invoice_id int,
+customer_id int,
+PRIMARY KEY (payment_id),
+foreign key (invoice_id) references invoice(invoice_id),
+foreign key (customer_id) references customer(customer_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE checkIssued(
+check_id int AUTO_INCREMENT,
+amount DECIMAL(10,2),
+payment_date DATE,
+employee_id int,
+PRIMARY KEY (check_id),
+foreign key (employee_id) references employee(employee_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
